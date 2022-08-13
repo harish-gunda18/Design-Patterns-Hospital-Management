@@ -73,4 +73,24 @@ public class Patient extends Person {
 			return patient;
 		}
 	}
+
+	public String getSpecialization() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setSpecialization(String specialization) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getDoctor_id() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void setDoctor_id(int doctor_id) {
+		// TODO Auto-generated method stub
+		
+	}
 }

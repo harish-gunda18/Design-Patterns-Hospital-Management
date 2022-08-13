@@ -75,7 +75,7 @@ public class Doctor extends Person{
 			return this;
 		}
 		
-		public DoctorBuilder gender(int doctor_id) {
+		public DoctorBuilder doctor_id(int doctor_id) {
 			this.doctor_id = doctor_id;
 			return this;
 		}
@@ -90,5 +90,18 @@ public class Doctor extends Person{
 			return doctor;
 		}
 	}
+
+
+
+	public int getPatient_id() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void setPatient_id(int patient_id) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }
