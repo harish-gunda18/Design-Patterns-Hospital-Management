@@ -51,6 +51,17 @@ public abstract class Person {
 		this.email = email;
 	}
 	
+	public abstract String getSpecialization();
+
+	public abstract void setSpecialization(String specialization);
+
+	public abstract int getDoctor_id();
+
+	public abstract void setDoctor_id(int doctor_id);
+	
+	public abstract int getPatient_id();
+
+	public abstract void setPatient_id(int patient_id);
 	
 
 }
