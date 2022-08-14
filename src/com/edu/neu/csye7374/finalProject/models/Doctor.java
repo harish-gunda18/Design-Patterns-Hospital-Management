@@ -1,4 +1,4 @@
-package com.csye.finalProject.models;
+package com.edu.neu.csye7374.finalProject.models;
 
 public class Doctor extends Person{
 	String specialization;

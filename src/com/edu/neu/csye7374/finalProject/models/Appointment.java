@@ -1,18 +1,16 @@
-package com.csye.finalProject.models;
-
+package com.edu.neu.csye7374.finalProject.models;
+import java.time.LocalDateTime;
 
 public class Appointment {
 	int patientId;
 	int doctorId;
-	String appointmentDate;
-	String appointmentTime;
+	LocalDateTime appointmentDateTime;
 	String appointmentDescription;
 	
 	private Appointment(AppointmentBuilder builder) {
 		this.patientId = builder.patientId;
 		this.doctorId = builder.doctorId;
-		this.appointmentDate = builder.appointmentDate;
-		this.appointmentTime = builder.appointmentTime;
+		this.appointmentDateTime = builder.appointmentDateTime;
 		this.appointmentDescription = builder.appointmentDescription;
 	}
 	
@@ -28,18 +26,16 @@ public class Appointment {
 	public void setDoctorId(int doctorId) {
 		this.doctorId = doctorId;
 	}
-	public String getAppointmentDate() {
-		return appointmentDate;
+	
+	public LocalDateTime getAppointmentDateTime() {
+		return appointmentDateTime;
 	}
-	public void setAppointmentDate(String appointmentDate) {
-		this.appointmentDate = appointmentDate;
+
+	public void setAppointmentDateTime(LocalDateTime appointmentDateTime) {
+		this.appointmentDateTime = appointmentDateTime;
 	}
-	public String getAppointmentTime() {
-		return appointmentTime;
-	}
-	public void setAppointmentTime(String appointmentTime) {
-		this.appointmentTime = appointmentTime;
-	}
+
+	
 	public String getAppointmentDescription() {
 		return appointmentDescription;
 	}
@@ -50,24 +46,20 @@ public class Appointment {
 	public static class AppointmentBuilder {
 		int patientId;
 		int doctorId;
-		String appointmentDate;
-		String appointmentTime;
+		LocalDateTime appointmentDateTime;
 		String appointmentDescription;
+		
 		
 		public AppointmentBuilder(int patientId, int doctorId) {
 			this.patientId = patientId;
 			this.doctorId = doctorId;
 		}
 		
-		public AppointmentBuilder appointmentDate(String appointmentDate) {
-			this.appointmentDate = appointmentDate;
+		public AppointmentBuilder appointmentDateTime(LocalDateTime appointmentDateTime) {
+			this.appointmentDateTime = appointmentDateTime;
 			return this;
 		}
 		
-		public AppointmentBuilder appointmentTime(String appointmentTime) {
-			this.appointmentTime = appointmentTime;
-			return this;
-		}
 		
 		public AppointmentBuilder appointmentDescription(String appointmentDescription) {
 			this.appointmentDescription = appointmentDescription;

@@ -1,8 +1,7 @@
-package com.csye.finalProject.factories;
+package com.edu.neu.csye7374.finalProject.factories;
 
-
-import com.csye.finalProject.models.Doctor;
-import com.csye.finalProject.models.Person;
+import com.edu.neu.csye7374.finalProject.models.Doctor;
+import com.edu.neu.csye7374.finalProject.models.Person;
 
 public class DoctorFactory extends PersonFactory{
 	private static DoctorFactory myInstance;

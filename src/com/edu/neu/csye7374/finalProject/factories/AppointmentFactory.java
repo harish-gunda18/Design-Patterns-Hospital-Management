@@ -1,7 +1,8 @@
-package com.csye.finalProject.factories;
+package com.edu.neu.csye7374.finalProject.factories;
 
-import com.csye.finalProject.models.Appointment;
+import java.time.LocalDateTime;
 
+import com.edu.neu.csye7374.finalProject.models.Appointment;
 
 public class AppointmentFactory {
 	private static AppointmentFactory myInstance;
@@ -18,9 +19,9 @@ public class AppointmentFactory {
 	}
 
 
-	public Appointment getObject(int doctorId, int patientId, String appointmentDate, String appointmentTime, String appointmentDescription) {
+	public Appointment getObject(int doctorId, int patientId, LocalDateTime appointmentDateTime, String appointmentDescription) {
 		
-		return new Appointment.AppointmentBuilder(doctorId, patientId).appointmentDate(appointmentDate).
-				appointmentTime(appointmentTime).appointmentDescription(appointmentDescription).build();
+		return new Appointment.AppointmentBuilder(doctorId, patientId).appointmentDateTime(appointmentDateTime)
+				.appointmentDescription(appointmentDescription).build();
 	}
 }
