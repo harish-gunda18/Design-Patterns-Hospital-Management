@@ -24,3 +24,5 @@ hs_err_pid*
 /build/
 
 **/.DS_Store
+.classpath
+.settings/org.eclipse.jdt.core.prefs
