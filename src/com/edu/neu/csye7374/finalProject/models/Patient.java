@@ -1,6 +1,7 @@
 package com.edu.neu.csye7374.finalProject.models;
 public class Patient extends Person {
 	int patient_id;
+	static int id = 0;
 
 	public int getPatient_id() {
 		return patient_id;
@@ -20,6 +21,8 @@ public class Patient extends Person {
 		this.address = builder.address;
 		this.patient_id = builder.patient_id;
 		this.email = builder.email;
+		this.patient_id = Patient.id;
+		Patient.id = Patient.id+1;
 	}
 	
 	public static class PatientBuilder {
