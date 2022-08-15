@@ -19,9 +19,9 @@ public class DoctorFactory extends PersonFactory{
 
 
 	public Person getObject(String firstName, String lastName, String gender, String address, String mobile, int age,
-			String email) {
+			String email,String specialization) {
 		
-		return new Doctor.DoctorBuilder(firstName, lastName).gender(gender).address(address).mobile(mobile).age(age).build();
+		return new Doctor.DoctorBuilder(firstName, lastName).gender(gender).address(address).mobile(mobile).age(age).specialization(specialization).build();
 	}
 
 	

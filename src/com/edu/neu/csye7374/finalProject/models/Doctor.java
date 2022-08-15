@@ -3,6 +3,7 @@ package com.edu.neu.csye7374.finalProject.models;
 public class Doctor extends Person{
 	String specialization;
 	int doctor_id;
+	static int id = 0;
 	
 	private Doctor(DoctorBuilder builder) {
 		this.firstName = builder.firstName;
@@ -14,6 +15,8 @@ public class Doctor extends Person{
 		this.address = builder.address;
 		this.doctor_id = builder.doctor_id;
 		this.email = builder.email;
+		this.doctor_id = Doctor.id;
+		Doctor.id = Doctor.id+1;
 	}
 
 	public String getSpecialization() {
