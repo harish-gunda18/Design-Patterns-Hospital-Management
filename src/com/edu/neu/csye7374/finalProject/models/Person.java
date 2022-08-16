@@ -51,20 +51,36 @@ public abstract class Person {
 		this.email = email;
 	}
 	
-	public abstract String getSpecialization();
+	public String getSpecialization() {
+		return null;
+	}
 
-	public abstract void setSpecialization(String specialization);
+	public void setSpecialization(String specialization) {
+		
+	}
 
-	public abstract int getDoctor_id();
+	public int getDoctor_id() {
+		return 0;
+	}
 
-	public abstract void setDoctor_id(int doctor_id);
+	public void setDoctor_id(int doctor_id) {
+		
+	}
 	
-	public abstract int getPatient_id();
+	public int getPatient_id() {
+		return 0;
+	}
 
-	public abstract void setPatient_id(int patient_id);
+	public void setPatient_id(int patient_id) {
+		
+	}
 	
-	public abstract InsuraceStrategyAPI getPatientInsurance();
-	public abstract void setPatientInsurance(InsuraceStrategyAPI insuraceStrategyAPI);
+	public InsuraceStrategyAPI getPatientInsurance() {
+		return null;
+	}
+	public void setPatientInsurance(InsuraceStrategyAPI insuraceStrategyAPI) {
+		
+	}
 	
 	
 	

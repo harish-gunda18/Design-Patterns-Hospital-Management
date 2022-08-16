@@ -96,27 +96,7 @@ public class Doctor extends Person{
 
 
 
-	public int getPatient_id() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public void setPatient_id(int patient_id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public InsuraceStrategyAPI getPatientInsurance() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setPatientInsurance(InsuraceStrategyAPI insuraceStrategyAPI) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	
 }

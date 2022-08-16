@@ -32,7 +32,7 @@ public class Department {
         return departmentManager;
     }
 
-    public List<Doctor> getListOfDoctors() {
+    public List<Person> getListOfDoctors() {
         return listOfDoctors;
     }
 
