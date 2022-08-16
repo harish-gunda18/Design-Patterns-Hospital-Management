@@ -6,6 +6,7 @@ public class Appointment {
 	int doctorId;
 	LocalDateTime appointmentDateTime;
 	String appointmentDescription;
+	Visit visit;
 	
 	private Appointment(AppointmentBuilder builder) {
 		this.patientId = builder.patientId;

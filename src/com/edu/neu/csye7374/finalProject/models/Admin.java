@@ -5,6 +5,7 @@ import com.edu.neu.csye7374.finalProject.factories.DoctorFactory;
 import com.edu.neu.csye7374.finalProject.factories.PatientFactory;
 import com.edu.neu.csye7374.finalProject.factories.PersonFactory;
 
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -72,11 +73,17 @@ public class Admin {
          departmentsList.add(CardioDept);
          departmentsList.add(PsychoDept);
          departmentsList.add(OrthoDept);
+         
+         AppointmentCheckerAPI appointmentCheckerAPI = new AppointmentChecker();
+		 AppointmentAPI appointmentAdapter = new AppointmentAdapter(appointmentCheckerAPI);
+		 List<Appointment> appointments = new ArrayList<Appointment>();
+		 
+		 appointments.add(appointmentAdapter.createAppoinment(doctor1.getDoctor_id(), patient1.getPatient_id(), LocalDateTime.now(), "pain in the chest", appointments));
 
 
          //Bill Generation Sample(Insurance Strategy Applied via patient)
-        Bill bill1 = new Bill.BillBuilder().setDoctorCharge(300).setMedicineCharge(100).setLabCharge(250).build();
-        System.out.println("Print Bill"+ bill1);
+         Bill bill1 = new Bill.BillBuilder().setDoctorCharge(300).setMedicineCharge(100).setLabCharge(250).build();
+         System.out.println("Print Bill"+ bill1);
 
 //         Admin admin = new Admin("H100", "Joseph Quinn", "H1n2", patients, departmentsList);
 //         System.out.println(admin.getListOfDepartments());
