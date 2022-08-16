@@ -16,6 +16,7 @@ public class Department {
         this.admin = departmentBuilder.admin;
         this.departmentName =  departmentBuilder.departmentName;
         this.departmentManager =  departmentBuilder.departmentManager;
+        this.listOfDoctors = departmentBuilder.listOfDoctors;
     }
 
     public Admin getAdmin() {
