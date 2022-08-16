@@ -27,6 +27,13 @@ public class Admin {
          Patient patient4= (Patient)patientFactory.getObject("Jackson", "Doe", "M", "test4 Address", "126342124", 24, "nvd@yahoo .com", "specialization");
          Patient patient5= (Patient)patientFactory.getObject("Jayden", "Doe", "M", "test5 Address", "524243413", 28, "asf@yahoo .com", "specialization");
 
+         //TODO
+        patient2.setPatientInsurance(new InsuranceBluecrossStrategy());
+        patient1.setPatientInsurance(new InsuranceBluecrossStrategy());
+        patient3.setPatientInsurance(new InsuranceBluecrossStrategy());
+        patient4.setPatientInsurance(new InsuranceBluecrossStrategy());
+        patient5.setPatientInsurance(new InsuranceBluecrossStrategy());
+
          Doctor doctor1 = (Doctor) doctorFactory.getObject("James", "Dick", "M", "test6 Address", "9382732812", 35, "ngl@gmail.com", "specialization");
          Doctor doctor2 = (Doctor) doctorFactory.getObject("Joey", "Dick", "M", "test7 Address", "4328310923", 32, "tbh@gmail.com", "specialization");
          Doctor doctor3 = (Doctor) doctorFactory.getObject("Jenson", "Dick", "F", "test8 Address", "123783211", 38, "lol@gmail.com", "specialization");
@@ -66,6 +73,10 @@ public class Admin {
          departmentsList.add(PsychoDept);
          departmentsList.add(OrthoDept);
 
+
+         //Bill Generation Sample(Insurance Strategy Applied via patient)
+        Bill bill1 = new Bill.BillBuilder().setDoctorCharge(300).setMedicineCharge(100).setLabCharge(250).build();
+        System.out.println("Print Bill"+ bill1);
 
 //         Admin admin = new Admin("H100", "Joseph Quinn", "H1n2", patients, departmentsList);
 //         System.out.println(admin.getListOfDepartments());

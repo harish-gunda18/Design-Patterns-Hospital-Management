@@ -2,6 +2,15 @@ package com.edu.neu.csye7374.finalProject.models;
 public class Patient extends Person {
 	int patient_id;
 	static int id = 0;
+	private InsuraceStrategyAPI patientInsurance;
+
+	public InsuraceStrategyAPI getPatientInsurance() {
+		return patientInsurance;
+	}
+
+	public void setPatientInsurance(InsuraceStrategyAPI insuraceStrategyAPI) {
+		this.patientInsurance = insuraceStrategyAPI;
+	}
 
 	public int getPatient_id() {
 		return patient_id;
