@@ -27,8 +27,9 @@ public class AppointmentChecker implements AppointmentCheckerAPI{
 
 		try {
 			String userTimeString = Integer.toString(dateTime.getHour())+":"+Integer.toString(dateTime.getMinute());
+			System.out.println("user time string: "+userTimeString);
 		    Date userDate = parser.parse(userTimeString);
-		    if (userDate.after(ten) && userDate.before(eighteen)) {
+		    if (userDate.before(ten) || userDate.after(eighteen)) {
 		        return false;
 		    }
 		} catch (ParseException e) {

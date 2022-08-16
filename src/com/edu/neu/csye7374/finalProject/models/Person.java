@@ -63,5 +63,10 @@ public abstract class Person {
 
 	public abstract void setPatient_id(int patient_id);
 	
+	public abstract InsuraceStrategyAPI getPatientInsurance();
+	public abstract void setPatientInsurance(InsuraceStrategyAPI insuraceStrategyAPI);
+	
+	
+	
 
 }

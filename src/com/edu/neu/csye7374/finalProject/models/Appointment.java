@@ -8,6 +8,14 @@ public class Appointment {
 	String appointmentDescription;
 	Visit visit;
 	
+	public Visit getVisit() {
+		return visit;
+	}
+
+	public void setVisit(Visit visit) {
+		this.visit = visit;
+	}
+
 	private Appointment(AppointmentBuilder builder) {
 		this.patientId = builder.patientId;
 		this.doctorId = builder.doctorId;
