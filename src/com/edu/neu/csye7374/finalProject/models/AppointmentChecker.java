@@ -27,7 +27,7 @@ public class AppointmentChecker implements AppointmentCheckerAPI{
 
 		try {
 			String userTimeString = Integer.toString(dateTime.getHour())+":"+Integer.toString(dateTime.getMinute());
-			System.out.println("user time string: "+userTimeString);
+			System.out.println("appointment time requested: "+userTimeString);
 		    Date userDate = parser.parse(userTimeString);
 		    if (userDate.before(ten) || userDate.after(eighteen)) {
 		        return false;
@@ -45,6 +45,7 @@ public class AppointmentChecker implements AppointmentCheckerAPI{
 			
 			
 		}
+		System.out.println("Appointment available");
 		return true;
 				
 	}
