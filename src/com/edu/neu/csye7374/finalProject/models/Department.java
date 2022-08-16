@@ -1,26 +1,27 @@
-package com.edu.neu.csye7374.finalProject.models;
+    package com.edu.neu.csye7374.finalProject.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Department {
-    Admin admin;
+    String adminId;
     String departmentName;
     String departmentManager;
 
     private List<Doctor> listOfDoctors = new ArrayList<Doctor>();
 
 
+
     public Department(DepartmentBuilder departmentBuilder) {
         super();
-        this.admin = departmentBuilder.admin;
+        this.adminId = departmentBuilder.adminId;
         this.departmentName =  departmentBuilder.departmentName;
         this.departmentManager =  departmentBuilder.departmentManager;
         this.listOfDoctors = departmentBuilder.listOfDoctors;
     }
 
-    public Admin getAdmin() {
-        return admin;
+    public String getAdminId() {
+        return adminId;
     }
 
     public String getDepartmentName() {
@@ -36,13 +37,13 @@ public class Department {
     }
 
     public static class DepartmentBuilder{
-        Admin admin;
+        String adminId;
         String departmentName;
         String departmentManager;
         List<Doctor> listOfDoctors = new ArrayList<Doctor>();
 
-        public DepartmentBuilder setAdmin(Admin admin) {
-            this.admin = admin;
+        public DepartmentBuilder setAdminId(String adminId) {
+            this.adminId = adminId;
             return this;
         }
 
