@@ -5,13 +5,18 @@ public class Bill {
     double doctorCharge;
     double medicineCharge;
     double labCharge;
+    private double totalCharge;
 
+    public double getTotalCharge(){
+        return this.totalCharge;
+    }
     public Bill( BillBuilder billBuilder){
         super();
         this.patient = billBuilder.patient;
         this.doctorCharge = billBuilder.doctorCharge;
         this.medicineCharge = billBuilder.medicineCharge;
         this.labCharge = billBuilder.labCharge;
+        this.totalCharge = billBuilder.totalCharge;
     }
     public Patient getPatient () {
         return patient;
@@ -34,6 +39,7 @@ public class Bill {
         double doctorCharge;
         double medicineCharge;
         double labCharge;
+        double totalCharge;
 
         public BillBuilder setPatient(Patient patient) {
             this.patient = patient;
@@ -51,7 +57,13 @@ public class Bill {
             this.labCharge = labCharge;
             return this;
         }
+
+        public double calculateTotalCharge(){
+            return this.doctorCharge + this.medicineCharge + this.labCharge;
+        }
+
         public Bill build() {
+            this.totalCharge = calculateTotalCharge();
             return new Bill(this);
         }
     }

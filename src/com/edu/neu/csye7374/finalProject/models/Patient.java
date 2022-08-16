@@ -8,6 +8,10 @@ public class Patient extends Person {
 		return patientInsurance;
 	}
 
+	public InsuraceStrategyAPI setPatientInsurance(InsuraceStrategyAPI insuraceStrategyAPI) {
+		this.patientInsurance = insuraceStrategyAPI;
+	}
+
 	public int getPatient_id() {
 		return patient_id;
 	}
@@ -27,7 +31,6 @@ public class Patient extends Person {
 		this.patient_id = builder.patient_id;
 		this.email = builder.email;
 		this.patient_id = Patient.id;
-		this.patientInsurance = builder.patientInsuranceStrategy;
 		Patient.id = Patient.id+1;
 	}
 	
@@ -40,12 +43,6 @@ public class Patient extends Person {
 		private int age;
 		private String email;
 		int patient_id;
-		private InsuraceStrategyAPI patientInsuranceStrategy;
-
-		public PatientBuilder setInsuranceStrategy(InsuraceStrategyAPI insuranceStrategy){
-			this.patientInsuranceStrategy = insuranceStrategy;
-			return this;
-		}
 		
 		public PatientBuilder(String firstName, String lastName) {
 			this.firstName = firstName;

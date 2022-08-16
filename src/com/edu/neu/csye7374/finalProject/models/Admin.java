@@ -19,6 +19,7 @@ public class Admin {
          PersonFactory patientFactory = PatientFactory.getInstance();
          PersonFactory doctorFactory = DoctorFactory.getInstance();
          Patient patient1= (Patient)patientFactory.getObject("John", "Doe", "M", "test Address", "q76q76q", 25, "abc@gmail.com", "specialization");
+         patient1.setPatientInsurance(new InsuranceBluecrossStrategy());
          Doctor doctor1 = (Doctor) doctorFactory.getObject("James", "Dick", "M", "test Address", "q76q76q", 25, "abc@gmail.com", "specialization");;
          Visit visit = new Visit.VisitBuilder()
                  .setDaignosis("ill")
