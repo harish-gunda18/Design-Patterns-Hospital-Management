@@ -67,7 +67,9 @@ public class Admin {
          departmentsList.add(CardioDept);
          departmentsList.add(PsychoDept);
          departmentsList.add(OrthoDept);
-         
+
+
+		 System.out.println("---------------------------------------Flow 1-------------------------------------------------------------------------------");
          // ################################ 1st example ################################
          
          // appointment creation
@@ -86,10 +88,8 @@ public class Admin {
                  .setReference("reference")
                  .build();
 		 appointment1.setVisit(visit1);
-		 visit1.setState(visit1.getInProgress());
-		 System.out.println(visit1.getState());
-		 visit1.setState(visit1.getWaiting());
-		 System.out.println(visit1.getState());
+		 visit1.waiting();
+		 visit1.inProgress();
 		 
 		 // prescription
 		 PrescriptionDecorator prescription1 = new Prescription.PrescriptionBuilder().setQuantity(1).build();
@@ -103,11 +103,13 @@ public class Admin {
 		
          //Bill Generation Sample(Insurance Strategy Applied via patient)
          Bill bill1 = new Bill.BillBuilder().setDoctorCharge(300).setLabCharge(250).setPatient(patient1).setVisit(visit1).build();
-         System.out.println("Print Bill"+ bill1);
-         
-         // visit complete
-         visit1.setState(visit1.getCompleted());
-		 System.out.println(visit1.getState());
+		visit1.setBill(bill1);
+
+		// visit complete
+         visit1.completed();
+		System.out.println("----------------------------------------------------------------------------------------------------------------------");
+
+		System.out.println("-------------------------------Flow 2--------------------------------------------------------------------------------------");
 
 
 		// ################################ 2nd example ################################
@@ -124,10 +126,7 @@ public class Admin {
                  .setReference("reference")
                  .build();
 		 appointment2.setVisit(visit2);
-		 visit2.setState(visit2.getInProgress());
-		 System.out.println(visit2.getState());
-		 visit2.setState(visit2.getWaiting());
-		 System.out.println(visit2.getState());
+		 visit2.inProgress();
 		 
 		// prescription
 		 PrescriptionDecorator prescription2 = new Prescription.PrescriptionBuilder().setQuantity(2).build();
@@ -141,12 +140,13 @@ public class Admin {
 		
          //Bill Generation Sample(Insurance Strategy Applied via patient)
          Bill bill2 = new Bill.BillBuilder().setDoctorCharge(400).setLabCharge(350).setPatient(patient2).setVisit(visit2).build();
-         System.out.println("Print Bill"+ bill2);
-         
-         // visit complete
-         visit2.setState(visit2.getCompleted());
-		 System.out.println(visit2.getState());
-		 
+		visit2.setBill(bill2);
+
+		// visit complete
+		visit2.completed();
+		System.out.println("----------------------------------------------------------------------------------------------------------------------");
+
+		System.out.println("----------------------------------- Flow 3----------------------------------------------------------------------------------");
 		// ################################ 3rd example ################################
 			// appointment creation
 			 Appointment appointment3 = appointmentAdapter.createAppoinment(doctor3.getDoctor_id(), patient3.getPatient_id(), LocalDateTime.of(2022, 8, 16, 12, 30), "pain in the stomach", appointments);
@@ -161,11 +161,9 @@ public class Admin {
 	                 .setReference("reference")
 	                 .build();
 			 appointment3.setVisit(visit3);
-			 visit3.setState(visit3.getInProgress());
-			 System.out.println(visit3.getState());
-			 visit3.setState(visit3.getWaiting());
-			 System.out.println(visit3.getState());
-			 
+			 visit3.waiting();
+			 visit3.inProgress();
+
 			// prescription
 			 PrescriptionDecorator prescription3 = new Prescription.PrescriptionBuilder().setQuantity(3).build();
 			 prescriptionDecorator = new HydrocodoneDecorator(prescription3);
@@ -178,62 +176,62 @@ public class Admin {
 			
 	         //Bill Generation Sample(Insurance Strategy Applied via patient)
 	         Bill bill3 = new Bill.BillBuilder().setDoctorCharge(500).setLabCharge(450).setPatient(patient3).setVisit(visit3).build();
-	         System.out.println("Print Bill"+ bill3);
-	         
+			visit3.setBill(bill3);
+
 	         // visit complete
-	         visit3.setState(visit3.getCompleted());
-			 System.out.println(visit3.getState());
-		 
-     }
+	         visit3.completed();
+		System.out.println("----------------------------------------------------------------------------------------------------------------------");
+
+	}
 
 
-    public Admin(String hospitalId, String adminName, String post, List<Patient> listOfPatients, List<Department> listOfDepartments) {
-        this.hospitalId = hospitalId;
-        this.adminName = adminName;
-        this.post = post;
-        this.listOfPatients = listOfPatients;
-        this.listOfDepartments = listOfDepartments;
-    }
-
-    public String getHospitalId() {
-        return hospitalId;
-    }
-
-    public void setHospitalId(String hospitalId) {
-        this.hospitalId = hospitalId;
-    }
-
-    public String getAdminName() {
-        return adminName;
-    }
-
-    public void setAdminName(String adminName) {
-        this.adminName = adminName;
-    }
-
-    public String getPost() {
-        return post;
-    }
-
-    public void setPost(String post) {
-        this.post = post;
-    }
-
-    public List<Patient> getListOfPatients() {
-        return listOfPatients;
-    }
-
-    public void setListOfPatients(List<Patient> listOfPatients) {
-        this.listOfPatients = listOfPatients;
-    }
-
-    public List<Department> getListOfDepartments() {
-        return listOfDepartments;
-    }
-
-    public void setListOfDepartments(List<Department> listOfDepartments) {
-        this.listOfDepartments = listOfDepartments;
-    }
+//    public Admin(String hospitalId, String adminName, String post, List<Patient> listOfPatients, List<Department> listOfDepartments) {
+//        this.hospitalId = hospitalId;
+//        this.adminName = adminName;
+//        this.post = post;
+//        this.listOfPatients = listOfPatients;
+//        this.listOfDepartments = listOfDepartments;
+//    }
+//
+//    public String getHospitalId() {
+//        return hospitalId;
+//    }
+//
+//    public void setHospitalId(String hospitalId) {
+//        this.hospitalId = hospitalId;
+//    }
+//
+//    public String getAdminName() {
+//        return adminName;
+//    }
+//
+//    public void setAdminName(String adminName) {
+//        this.adminName = adminName;
+//    }
+//
+//    public String getPost() {
+//        return post;
+//    }
+//
+//    public void setPost(String post) {
+//        this.post = post;
+//    }
+//
+//    public List<Patient> getListOfPatients() {
+//        return listOfPatients;
+//    }
+//
+//    public void setListOfPatients(List<Patient> listOfPatients) {
+//        this.listOfPatients = listOfPatients;
+//    }
+//
+//    public List<Department> getListOfDepartments() {
+//        return listOfDepartments;
+//    }
+//
+//    public void setListOfDepartments(List<Department> listOfDepartments) {
+//        this.listOfDepartments = listOfDepartments;
+//    }
 
 
 

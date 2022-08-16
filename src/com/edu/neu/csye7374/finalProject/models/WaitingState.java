@@ -3,6 +3,15 @@ package com.edu.neu.csye7374.finalProject.models;
 public class WaitingState implements VisitStateAPI{
     Visit visit;
 
+    @Override
+    public String toString() {
+        return "WaitingState {" +
+                "visit id:" + visit.getVisitId() +
+                " patient id:" + visit.getPatientId() +
+                " doctor id:" + visit.getDoctorId()+
+                '}';
+    }
+
     public WaitingState(Visit visit){
         this.visit = visit;
     }
@@ -19,7 +28,9 @@ public class WaitingState implements VisitStateAPI{
 
     @Override
     public void inProgress() {
+
         visit.setState(visit.getInProgress());
+        System.out.println(visit.getState());
     }
 
     @Override

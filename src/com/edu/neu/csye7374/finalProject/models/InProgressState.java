@@ -3,6 +3,15 @@ package com.edu.neu.csye7374.finalProject.models;
 public class InProgressState implements VisitStateAPI{
     Visit visit;
 
+    @Override
+    public String toString() {
+        return "InProgressState {" +
+                "visit id:" + visit.getVisitId() +
+                " patient id:" + visit.getPatientId() +
+                " doctor id:" + visit.getDoctorId()+
+                '}';
+    }
+
     public InProgressState(Visit visit){
         this.visit = visit;
     }
@@ -25,5 +34,10 @@ public class InProgressState implements VisitStateAPI{
     @Override
     public void completed() {
         visit.setState(visit.getCompleted());
+        System.out.println(visit.getState());
+        System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+        System.out.println("Prescription:" + visit.getPrescription());
+        System.out.println("Bill:" + visit.getBill());
+        System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
     }
 }

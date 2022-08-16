@@ -9,7 +9,7 @@ public class AddCommand implements CommandAPI{
 
     @Override
     public double execute() {
-        System.out.println("Executing Add Command");
+        System.out.println("Generating Total Payable Charge");
         return receiverObj.execute();
     }
 }

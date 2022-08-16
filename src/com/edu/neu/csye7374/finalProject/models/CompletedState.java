@@ -3,6 +3,15 @@ package com.edu.neu.csye7374.finalProject.models;
 public class CompletedState implements VisitStateAPI{
     Visit visit;
 
+    @Override
+    public String toString() {
+        return "CompletedState {" +
+                "visit id:" + visit.getVisitId() +
+                " patient id:" + visit.getPatientId() +
+                " doctor id:" + visit.getDoctorId()+
+                '}';
+    }
+
     public CompletedState(Visit visit){
         this.visit = visit;
     }

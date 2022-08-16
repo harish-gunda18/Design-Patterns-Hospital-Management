@@ -4,8 +4,31 @@ import java.time.OffsetDateTime;
 
 public class Visit implements VisitStateAPI {
 	private static int idTracker = 0;
-	
+
+	public Bill getBill() {
+		return bill;
+	}
+
+	public void setBill(Bill bill) {
+		this.bill = bill;
+	}
+
+	private Bill bill;
 	int visitId;
+
+	@Override
+	public String toString() {
+		return "Visit{" +
+				"visitId=" + visitId +
+				", patientId=" + patientId +
+				", doctorId=" + doctorId +
+				", date=" + date +
+				", diagnosis='" + diagnosis + '\'' +
+				", reference='" + reference + '\'' +
+				", prescription=" + prescription +
+				'}';
+	}
+
 	int patientId;
 	int doctorId;
 	OffsetDateTime date;
@@ -84,6 +107,7 @@ public class Visit implements VisitStateAPI {
 		this.inProgress = new InProgressState(this);
 		this.completed = new CompletedState(this);
 		this.state = new CheckedInState(this);
+		System.out.println(this.state);
 		this.prescription = visitBuilder.prescription;
 
 	}

@@ -7,6 +7,7 @@ public class Demo {
     public static void demo() {
         Admin admin = AdminSingleton.getInstance();
         System.out.print(admin);
+        Admin.demo();
 
     }
     public static void main(String[] args) {

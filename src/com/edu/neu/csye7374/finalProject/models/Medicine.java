@@ -18,6 +18,15 @@ public class Medicine {
 		return price;
 	}
 
+	@Override
+	public String toString() {
+		return "Medicine{" +
+				"name='" + name + '\'' +
+				", type='" + type + '\'' +
+				", description='" + description + '\'' +
+				", price=" + price +
+				'}';
+	}
 
 	String name;
 	String type;

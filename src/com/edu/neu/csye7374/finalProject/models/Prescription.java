@@ -4,6 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Prescription implements PrescriptionDecorator{
+	@Override
+	public String toString() {
+		return "Prescription{" +
+				"id=" + id +
+				", medicines=" + medicines +
+				", visitId=" + visitId +
+				", timeFrame='" + timeFrame + '\'' +
+				", quantity=" + quantity +
+				", dosage='" + dosage + '\'' +
+				'}';
+	}
 
 	int id;
 	public int getId() {
