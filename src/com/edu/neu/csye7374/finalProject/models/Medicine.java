@@ -22,7 +22,6 @@ public class Medicine {
 	public String toString() {
 		return "Medicine{" +
 				"name='" + name + '\'' +
-				", type='" + type + '\'' +
 				", description='" + description + '\'' +
 				", price=" + price +
 				'}';

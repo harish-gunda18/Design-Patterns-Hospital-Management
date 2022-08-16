@@ -12,7 +12,6 @@ public class Prescription implements PrescriptionDecorator{
 				", visitId=" + visitId +
 				", timeFrame='" + timeFrame + '\'' +
 				", quantity=" + quantity +
-				", dosage='" + dosage + '\'' +
 				'}';
 	}
 
