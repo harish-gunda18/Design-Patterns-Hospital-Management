@@ -8,7 +8,7 @@ public class Patient extends Person {
 		return patientInsurance;
 	}
 
-	public InsuraceStrategyAPI setPatientInsurance(InsuraceStrategyAPI insuraceStrategyAPI) {
+	public void setPatientInsurance(InsuraceStrategyAPI insuraceStrategyAPI) {
 		this.patientInsurance = insuraceStrategyAPI;
 	}
 
