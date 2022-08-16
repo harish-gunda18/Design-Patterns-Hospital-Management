@@ -4,9 +4,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import com.edu.neu.csye7374.finalProject.factories.AppointmentFactory;
-import com.edu.neu.csye7374.finalProject.models.Appointment;
-import com.edu.neu.csye7374.finalProject.models.AppointmentAPI;
-import com.edu.neu.csye7374.finalProject.models.AppointmentCheckerAPI;
 
 public class AppointmentAdapter implements AppointmentAPI{
 	AppointmentCheckerAPI appointmentCheckerAPI;

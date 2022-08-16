@@ -8,7 +8,7 @@ public class Department {
     String departmentName;
     String departmentManager;
 
-    private List<Doctor> listOfDoctors = new ArrayList<Doctor>();
+    private List<Person> listOfDoctors = new ArrayList<Person>();
 
 
 
@@ -40,7 +40,7 @@ public class Department {
         String adminId;
         String departmentName;
         String departmentManager;
-        List<Doctor> listOfDoctors = new ArrayList<Doctor>();
+        List<Person> listOfDoctors = new ArrayList<Person>();
 
         public DepartmentBuilder setAdminId(String adminId) {
             this.adminId = adminId;
@@ -57,8 +57,8 @@ public class Department {
             return this;
         }
 
-        public DepartmentBuilder setListOfDoctors(List<Doctor> listOfDoctors) {
-            this.listOfDoctors = listOfDoctors;
+        public DepartmentBuilder setListOfDoctors(List<Person> docters) {
+            this.listOfDoctors = docters;
             return this;
         }
 
