@@ -4,13 +4,9 @@ import com.edu.neu.csye7374.finalProject.factories.singleton.AdminSingleton;
 import com.edu.neu.csye7374.finalProject.models.Admin;
 
 public class Demo {
-    public static void demo() {
+    public static void HospitalOrchestratorDemo() {
         Admin admin = AdminSingleton.getInstance();
         System.out.print(admin);
         Admin.demo();
-
     }
-    public static void main(String[] args) {
-		Admin.demo();
-	}
 }

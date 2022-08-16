@@ -19,7 +19,7 @@ public class Admin {
 
 
 
-    public static void demo(){
+    public static void  demo(){
          PersonFactory patientFactory = PatientFactory.getInstance();
          PersonFactory doctorFactory = DoctorFactory.getInstance();
          Person patient1= patientFactory.getObject("John", "Doe", "M", "test Address", "1231221234", 25, "abc@gmail.com", "specialization");
@@ -183,55 +183,6 @@ public class Admin {
 		System.out.println("----------------------------------------------------------------------------------------------------------------------");
 
 	}
-
-
-//    public Admin(String hospitalId, String adminName, String post, List<Patient> listOfPatients, List<Department> listOfDepartments) {
-//        this.hospitalId = hospitalId;
-//        this.adminName = adminName;
-//        this.post = post;
-//        this.listOfPatients = listOfPatients;
-//        this.listOfDepartments = listOfDepartments;
-//    }
-//
-//    public String getHospitalId() {
-//        return hospitalId;
-//    }
-//
-//    public void setHospitalId(String hospitalId) {
-//        this.hospitalId = hospitalId;
-//    }
-//
-//    public String getAdminName() {
-//        return adminName;
-//    }
-//
-//    public void setAdminName(String adminName) {
-//        this.adminName = adminName;
-//    }
-//
-//    public String getPost() {
-//        return post;
-//    }
-//
-//    public void setPost(String post) {
-//        this.post = post;
-//    }
-//
-//    public List<Patient> getListOfPatients() {
-//        return listOfPatients;
-//    }
-//
-//    public void setListOfPatients(List<Patient> listOfPatients) {
-//        this.listOfPatients = listOfPatients;
-//    }
-//
-//    public List<Department> getListOfDepartments() {
-//        return listOfDepartments;
-//    }
-//
-//    public void setListOfDepartments(List<Department> listOfDepartments) {
-//        this.listOfDepartments = listOfDepartments;
-//    }
 
 
 
