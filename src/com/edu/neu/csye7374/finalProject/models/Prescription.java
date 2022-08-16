@@ -1,21 +1,40 @@
 package com.edu.neu.csye7374.finalProject.models;
 
-public class Prescription {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Prescription implements PrescriptionDecorator{
 
 	int id;
 	public int getId() {
 		return id;
 	}
-	public int getMedicineId() {
-		return medicineId;
+	
+	public List<Medicine> getMedicines() {
+		return medicines;
 	}
+	
+	
+	
+	public void setMedicines(List<Medicine> medicines) {
+		this.medicines = medicines;
+	}
+	
+	public double totalMedicineCharge() {
+		double total = 0;
+		for(Medicine medicine:medicines) {
+			total+=medicine.getPrice();
+		}
+		return total*quantity;
+	}
+
 	public int getVisitId() {
 		return visitId;
 	}
 	public String getTimeFrame() {
 		return timeFrame;
 	}
-	public String getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
 	public String getDosage() {
@@ -24,17 +43,16 @@ public class Prescription {
 	
 	public Prescription(PrescriptionBuilder prescriptionBuilder) {
 		this.id = prescriptionBuilder.id;
-		this.medicineId = prescriptionBuilder.medicineId;
 		this.visitId = prescriptionBuilder.visitId;
 		this.timeFrame = prescriptionBuilder.timeFrame;
 		this.quantity = prescriptionBuilder.quantity;
 		this.dosage = prescriptionBuilder.dosage;
 	}
 
-	int medicineId;
+	List<Medicine> medicines= new ArrayList<>();
 	int visitId;
 	String timeFrame;
-	String quantity;
+	int quantity;
 	String dosage;
 	
 	public static class PrescriptionBuilder{
@@ -42,7 +60,7 @@ public class Prescription {
 		int medicineId;
 		int visitId;
 		String timeFrame;
-		String quantity;
+		int quantity;
 		String dosage;
 
 		public Prescription build() {
@@ -53,11 +71,7 @@ public class Prescription {
 			this.id = id;
 			return this;
 		}
-		public PrescriptionBuilder setMedicineId(int medicineId) {
-			this.medicineId = medicineId;
-			return this;
-
-		}
+		
 		public PrescriptionBuilder setVisitId(int visitId) {
 			this.visitId = visitId;
 			return this;
@@ -69,7 +83,7 @@ public class Prescription {
 			return this;
 
 		}
-		public PrescriptionBuilder setQuantity(String quantity) {
+		public PrescriptionBuilder setQuantity(int quantity) {
 			this.quantity = quantity;
 			return this;
 
@@ -78,7 +92,14 @@ public class Prescription {
 			this.dosage = dosage;
 			return this;
 		}
+		
+		
 
+	}
+
+	@Override
+	public void addMedicine() {
+		
 	}
 	
 	

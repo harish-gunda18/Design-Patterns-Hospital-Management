@@ -2,13 +2,14 @@ package com.edu.neu.csye7374.finalProject.models;
 
 public class Bill {
     Person patient;
+    Visit visit;
 
     @Override
     public String toString() {
         return "Bill{" +
                 "patient=" + patient.firstName + " " + patient.lastName +
                 ", doctorCharge=" + doctorCharge +
-                ", medicineCharge=" + medicineCharge +
+                ", medicineCharge=" + this.visit.getPrescription().totalMedicineCharge() +
                 ", labCharge=" + labCharge +
                 ", totalCharge=" + totalCharge +
                 '}';
@@ -29,6 +30,7 @@ public class Bill {
         this.medicineCharge = billBuilder.medicineCharge;
         this.labCharge = billBuilder.labCharge;
         this.totalCharge = billBuilder.totalCharge;
+        this.visit = billBuilder.visit;
     }
     public Person getPatient () {
         return patient;
@@ -52,8 +54,14 @@ public class Bill {
         double medicineCharge;
         double labCharge;
         double totalCharge;
+        Visit visit;
 
-        public BillBuilder setPatient(Person patient1) {
+        public BillBuilder setVisit(Visit visit) {
+			this.visit = visit;
+			return this;
+		}
+		
+		public BillBuilder setPatient(Person patient1) {
             this.patient = patient1;
             return this;
         }
@@ -69,9 +77,11 @@ public class Bill {
             this.labCharge = labCharge;
             return this;
         }
-
+        
+        
+        
         public double calculateTotalCharge(){
-            double totalPayable = new BillGenerationInvoker().execute(this.doctorCharge, this.medicineCharge, this.labCharge);
+            double totalPayable = new BillGenerationInvoker().execute(this.doctorCharge, this.visit.getPrescription().totalMedicineCharge(), this.labCharge);
             return patient.getPatientInsurance().calcuateBill(totalPayable);
         }
 
