@@ -5,6 +5,7 @@ import com.edu.neu.csye7374.finalProject.factories.DoctorFactory;
 import com.edu.neu.csye7374.finalProject.factories.PatientFactory;
 import com.edu.neu.csye7374.finalProject.factories.PersonFactory;
 
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,13 +39,7 @@ public class Admin {
          Doctor doctor2 = (Doctor) doctorFactory.getObject("Joey", "Dick", "M", "test7 Address", "4328310923", 32, "tbh@gmail.com", "specialization");
          Doctor doctor3 = (Doctor) doctorFactory.getObject("Jenson", "Dick", "F", "test8 Address", "123783211", 38, "lol@gmail.com", "specialization");
 
-         Visit visit = new Visit.VisitBuilder()
-                 .setDaignosis("ill")
-                 .setDate(OffsetDateTime.now())
-                 .setDoctorId(doctor1.getDoctor_id())
-                 .setPatientId(patient1.getPatient_id())
-                 .setReference("reference")
-                 .build();
+         
 
 
          List<Patient> patients= new ArrayList<Patient>();
@@ -72,11 +67,28 @@ public class Admin {
          departmentsList.add(CardioDept);
          departmentsList.add(PsychoDept);
          departmentsList.add(OrthoDept);
-
-
+         
+         AppointmentCheckerAPI appointmentCheckerAPI = new AppointmentChecker();
+		 AppointmentAPI appointmentAdapter = new AppointmentAdapter(appointmentCheckerAPI);
+		 List<Appointment> appointments = new ArrayList<Appointment>();
+		 
+		 Appointment appointment1 = appointmentAdapter.createAppoinment(doctor1.getDoctor_id(), patient1.getPatient_id(), LocalDateTime.of(2022, 8, 16, 11, 0), "pain in the chest", appointments);
+		 appointments.add(appointment1);
+		 Visit visit1 = new Visit.VisitBuilder()
+                 .setDaignosis("ill")
+                 .setDate(OffsetDateTime.now())
+                 .setDoctorId(doctor1.getDoctor_id())
+                 .setPatientId(patient1.getPatient_id())
+                 .setReference("reference")
+                 .build();
+		 appointment1.setVisit(visit1);
+		 visit1.setInProgress(visit1);
+		 System.out.println(visit1.getState());
+		 InsuraceStrategyAPI insuraceStrategyAPI1 = new InsuranceBluecrossStrategy();
+		 patient1.setPatientInsurance(insuraceStrategyAPI1);
          //Bill Generation Sample(Insurance Strategy Applied via patient)
-        Bill bill1 = new Bill.BillBuilder().setDoctorCharge(300).setMedicineCharge(100).setLabCharge(250).build();
-        System.out.println("Print Bill"+ bill1);
+         Bill bill1 = new Bill.BillBuilder().setDoctorCharge(300).setMedicineCharge(100).setLabCharge(250).setPatient(patient1).build();
+         System.out.println("Print Bill"+ bill1);
 
 //         Admin admin = new Admin("H100", "Joseph Quinn", "H1n2", patients, departmentsList);
 //         System.out.println(admin.getListOfDepartments());
