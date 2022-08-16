@@ -7,5 +7,7 @@ public class Admin {
     private String hospitalId;
     private String post;
     private List<Patient> listOfPatients = new ArrayList<Patient>();
+    
+  
 
 }
