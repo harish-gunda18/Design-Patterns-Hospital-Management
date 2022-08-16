@@ -68,6 +68,8 @@ public class Admin {
          departmentsList.add(PsychoDept);
          departmentsList.add(OrthoDept);
          
+         // ################################ 1st example ################################
+         
          // appointment creation
          AppointmentCheckerAPI appointmentCheckerAPI = new AppointmentChecker();
 		 AppointmentAPI appointmentAdapter = new AppointmentAdapter(appointmentCheckerAPI);
@@ -89,20 +91,99 @@ public class Admin {
 		 visit1.setState(visit1.getWaiting());
 		 System.out.println(visit1.getState());
 		 
+		 // prescription
+		 PrescriptionDecorator prescription1 = new Prescription.PrescriptionBuilder().setQuantity(1).build();
+		 PrescriptionDecorator prescriptionDecorator = new ParacetemolDecorator(prescription1);
+		 prescriptionDecorator.addMedicine();
+		 visit1.setPrescription(prescription1);
+		 
 		 // Insurance strategy
 		 InsuraceStrategyAPI insuraceStrategyAPI1 = new InsuranceBluecrossStrategy();
 		 patient1.setPatientInsurance(insuraceStrategyAPI1);
 		
          //Bill Generation Sample(Insurance Strategy Applied via patient)
-         Bill bill1 = new Bill.BillBuilder().setDoctorCharge(300).setMedicineCharge(100).setLabCharge(250).setPatient(patient1).build();
+         Bill bill1 = new Bill.BillBuilder().setDoctorCharge(300).setLabCharge(250).setPatient(patient1).setVisit(visit1).build();
          System.out.println("Print Bill"+ bill1);
          
          // visit complete
          visit1.setState(visit1.getCompleted());
 		 System.out.println(visit1.getState());
 
-//         Admin admin = new Admin("H100", "Joseph Quinn", "H1n2", patients, departmentsList);
-//         System.out.println(admin.getListOfDepartments());
+
+		// ################################ 2nd example ################################
+		// appointment creation
+		 Appointment appointment2 = appointmentAdapter.createAppoinment(doctor2.getDoctor_id(), patient2.getPatient_id(), LocalDateTime.of(2022, 8, 16, 11, 30), "pain in the leg", appointments);
+		 appointments.add(appointment2);
+		 
+		 // Visit creation
+		 Visit visit2 = new Visit.VisitBuilder()
+                 .setDaignosis("fracture in tibula")
+                 .setDate(OffsetDateTime.now())
+                 .setDoctorId(doctor2.getDoctor_id())
+                 .setPatientId(patient2.getPatient_id())
+                 .setReference("reference")
+                 .build();
+		 appointment2.setVisit(visit2);
+		 visit2.setState(visit2.getInProgress());
+		 System.out.println(visit2.getState());
+		 visit2.setState(visit2.getWaiting());
+		 System.out.println(visit2.getState());
+		 
+		// prescription
+		 PrescriptionDecorator prescription2 = new Prescription.PrescriptionBuilder().setQuantity(2).build();
+		 prescriptionDecorator = new IbuprofenDecorator(prescription2);
+		 prescriptionDecorator.addMedicine();
+		 visit2.setPrescription(prescription2);
+		 
+		 // Insurance strategy
+		 InsuraceStrategyAPI insuraceStrategyAPI2 = new InsuranceAnthemStrategy();
+		 patient2.setPatientInsurance(insuraceStrategyAPI2);
+		
+         //Bill Generation Sample(Insurance Strategy Applied via patient)
+         Bill bill2 = new Bill.BillBuilder().setDoctorCharge(400).setLabCharge(350).setPatient(patient2).setVisit(visit2).build();
+         System.out.println("Print Bill"+ bill2);
+         
+         // visit complete
+         visit2.setState(visit2.getCompleted());
+		 System.out.println(visit2.getState());
+		 
+		// ################################ 3rd example ################################
+			// appointment creation
+			 Appointment appointment3 = appointmentAdapter.createAppoinment(doctor3.getDoctor_id(), patient3.getPatient_id(), LocalDateTime.of(2022, 8, 16, 12, 30), "pain in the stomach", appointments);
+			 appointments.add(appointment3);
+			 
+			 // Visit creation
+			 Visit visit3 = new Visit.VisitBuilder()
+	                 .setDaignosis("gall bladder leak")
+	                 .setDate(OffsetDateTime.now())
+	                 .setDoctorId(doctor3.getDoctor_id())
+	                 .setPatientId(patient3.getPatient_id())
+	                 .setReference("reference")
+	                 .build();
+			 appointment3.setVisit(visit3);
+			 visit3.setState(visit3.getInProgress());
+			 System.out.println(visit3.getState());
+			 visit3.setState(visit3.getWaiting());
+			 System.out.println(visit3.getState());
+			 
+			// prescription
+			 PrescriptionDecorator prescription3 = new Prescription.PrescriptionBuilder().setQuantity(3).build();
+			 prescriptionDecorator = new HydrocodoneDecorator(prescription3);
+			 prescriptionDecorator.addMedicine();
+			 visit3.setPrescription(prescription3);
+			 
+			 // Insurance strategy
+			 InsuraceStrategyAPI insuraceStrategyAPI3 = new InsuranceUnitedHealthStrategy();
+			 patient3.setPatientInsurance(insuraceStrategyAPI3);
+			
+	         //Bill Generation Sample(Insurance Strategy Applied via patient)
+	         Bill bill3 = new Bill.BillBuilder().setDoctorCharge(500).setLabCharge(450).setPatient(patient3).setVisit(visit3).build();
+	         System.out.println("Print Bill"+ bill3);
+	         
+	         // visit complete
+	         visit3.setState(visit3.getCompleted());
+			 System.out.println(visit3.getState());
+		 
      }
 
 

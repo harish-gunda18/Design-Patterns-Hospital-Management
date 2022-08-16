@@ -11,6 +11,19 @@ public class Visit implements VisitStateAPI {
 	OffsetDateTime date;
 	String diagnosis;
 	String reference;
+	Prescription prescription;
+
+	public Prescription getPrescription() {
+		return prescription;
+	}
+
+	public void setPrescription(Prescription prescription) {
+		this.prescription = prescription;
+	}
+	public void setPrescription(PrescriptionDecorator prescription) {
+		this.prescription = (Prescription) prescription;
+	}
+
 
 	public VisitStateAPI getCheckedIn() {
 		return checkedIn;
@@ -71,6 +84,7 @@ public class Visit implements VisitStateAPI {
 		this.inProgress = new InProgressState(this);
 		this.completed = new CompletedState(this);
 		this.state = new CheckedInState(this);
+		this.prescription = visitBuilder.prescription;
 
 	}
 	
@@ -123,6 +137,7 @@ public class Visit implements VisitStateAPI {
 		int patientId;
 		int doctorId;
 		int visitId;
+		Prescription prescription;
 		OffsetDateTime date;
 		String diagnosis;
 		String reference;
@@ -132,6 +147,12 @@ public class Visit implements VisitStateAPI {
 			this.patientId = patientId;
 			return this;
 		}
+		
+		public VisitBuilder setPrescription(Prescription prescription) {
+			this.prescription = prescription;
+			return this;
+		}
+		
 		
 		public VisitBuilder setDoctorId(int doctorId) {
 			this.doctorId = doctorId;
