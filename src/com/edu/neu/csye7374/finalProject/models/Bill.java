@@ -1,7 +1,7 @@
 package com.edu.neu.csye7374.finalProject.models;
 
 public class Bill {
-    Patient patient;
+    Person patient;
 
     @Override
     public String toString() {
@@ -30,7 +30,7 @@ public class Bill {
         this.labCharge = billBuilder.labCharge;
         this.totalCharge = billBuilder.totalCharge;
     }
-    public Patient getPatient () {
+    public Person getPatient () {
         return patient;
     }
 
@@ -47,14 +47,14 @@ public class Bill {
     }
 
     public static class BillBuilder {
-        Patient patient;
+        Person patient;
         double doctorCharge;
         double medicineCharge;
         double labCharge;
         double totalCharge;
 
-        public BillBuilder setPatient(Patient patient) {
-            this.patient = patient;
+        public BillBuilder setPatient(Person patient1) {
+            this.patient = patient1;
             return this;
         }
         public BillBuilder setDoctorCharge(double doctorCharge) {

@@ -106,5 +106,17 @@ public class Doctor extends Person{
 		
 	}
 
+	@Override
+	public InsuraceStrategyAPI getPatientInsurance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setPatientInsurance(InsuraceStrategyAPI insuraceStrategyAPI) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }
