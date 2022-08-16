@@ -6,6 +6,7 @@ import com.edu.neu.csye7374.finalProject.models.Admin;
 public class Demo {
     public static void demo() {
         Admin admin = AdminSingleton.getInstance();
+        Admin.demo();
 
     }
 }
